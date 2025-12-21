@@ -1,0 +1,19 @@
+{% assign icon_image_height = 300 %}
+
+<div class="layout layout--col">
+  <div class="layout layout--col">
+    <div class="my--5">
+      <h1 class="title title--large">Next bin pickup is in {{ days_until_pickup }} day{% if days_until_pickup != 1 %}s{% endif %}</h1>
+      <div class="description">Place bins at the street no later than 6 a.m.</div>
+    </div>
+    {{ pickup_events }}
+    {{ layout_name }}
+  </div>
+  {{ holiday_events }}
+</div>
+
+<div class="title_bar">
+  <img class="image-stroke image-stroke--large" src="data:image/svg+xml;base64,{{ svg_logo | base64_encode }}" width="24" height="24" alt="" />
+  <span class="title">{{ trmnl.plugin_settings.instance_name | default: 'Nashville Waste Services' }}</span>
+  <span class="instance">{{ next_pickup_day | date: "%A, %B %-d" }}</span>
+</div>

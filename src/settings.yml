@@ -1,0 +1,37 @@
+---
+strategy: polling
+no_screen_padding: 'no'
+dark_mode: 'no'
+static_data: ''
+polling_verb: get
+polling_url: 'https://api.recollect.net/api/places/{{ place_id }}/services/{{ service_id }}/events?nomerge=1&hide=reminder_only&after={{ "now" | date: "%Y-%m-%d" }}&before={{ "now" | date: "%s" | plus: 2592000 | date: "%Y-%m-%d" }}&locale=en'
+polling_headers: user-agent=TRMNL-Nashville-Waste/1.0
+polling_body: ''
+id: 201821
+custom_fields:
+- keyname: author_bio
+  name: About This Plugin
+  field_type: author_bio
+  category: life,environment
+  description: Forked from <a href="https://github.com/hossain-khan/trmnl-next-pickup-plugin' class='underline'>Hossain Khan's Next Pickup Plugin</a>"
+  github_url: https://github.com/hossain-khan/trmnl-next-pickup-plugin
+  learn_more_url: https://hossain-khan.github.io/trmnl-next-pickup-plugin/
+  email_address: trmnl@hossain.dev
+- keyname: place_id
+  field_type: string
+  name: Place ID
+  description: Your unique location ID from Recollect. Look at the URL for exporting an ICS calendar.</a>.
+  placeholder: 918DB048-D91A-11E8-B83E-68F5AF88FEB0
+- keyname: service_id
+  field_type: string
+  name: Service ID
+  description: Nashville waste collection service ID
+  placeholder: '1263'
+- keyname: address
+  field_type: string
+  name: Display Address
+  description: A friendly name for your location to show on the display
+  placeholder: 1 King Street, Oshawa
+  optional: true
+name: Nashville Waste Collection
+refresh_interval: 1440
