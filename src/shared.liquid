@@ -194,6 +194,7 @@ Calculate days until next pickup
 Capture upcoming holidays (still all future holidays)
 {%- endcomment -%}
 {% capture holiday_events %}
+{% if holiday_events.length > 0 %}
 <div class="flex gap gap--large">
   <div><span class="title title--small">Upcoming Holidays:</span></div>
   {% for event in sorted_events %}
@@ -203,5 +204,5 @@ Capture upcoming holidays (still all future holidays)
     {% endif %}
   {% endfor %}
 </div>
+{% endif  %}
 {% endcapture %}
-
