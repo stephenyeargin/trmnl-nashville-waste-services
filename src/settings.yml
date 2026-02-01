@@ -16,10 +16,11 @@ custom_fields:
   description: Show the next pickup date for Nashville Waste Services. Forked from <a href="https://github.com/hossain-khan/trmnl-next-pickup-plugin" class="underline">Hossain Khan's Next Pickup Plugin</a>
   github_url: https://github.com/stephenyeargin/trmnl-nashville-waste-services
   email_address: stephen@yearg.in
+  learn_more_url: https://www.nashville.gov/departments/waste-services/trash-and-recycling-services/recycling-app
 - keyname: place_id
   field_type: string
   name: Place ID
-  description: Your unique location ID from Recollect. Look at the URL for exporting an ICS calendar.</a>.
+  description: Your unique location ID from Recollect. Look at the <a href="https://www.nashville.gov/departments/waste-services/trash-and-recycling-services/recycling-app">URL for exporting an ICS calendar</a>.
   placeholder: 918DB048-D91A-11E8-B83E-68F5AF88FEB0
 - keyname: address
   field_type: string
