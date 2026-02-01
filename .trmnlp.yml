@@ -9,7 +9,6 @@ watch:
 # values of custom fields (defined in src/settings.yml)
 custom_fields: {
   place_id: 'C9CA7958-43F0-11EB-9CFA-7273B03FF381',
-  service_id: '1263'
 }
 
 # override variables
