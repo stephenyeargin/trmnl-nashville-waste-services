@@ -127,8 +127,12 @@
 </svg>
 {%- endcapture -%}
 
-
-{% assign today = "now" | date: "%Y-%m-%d" %}
+{%- comment -%}
+Calculate today's date in user's local timezone using utc_offset
+{%- endcomment -%}
+{% assign now_ts = "now" | date: "%s" %}
+{% assign today_ts = now_ts | plus: trmnl.user.utc_offset %}
+{% assign today = today_ts | date: "%Y-%m-%d" %}
 {% assign sorted_events = events | sort: "day" %}
 
 {%- comment -%}
@@ -169,7 +173,7 @@ Capture pickups for the next pickup day
         src="data:image/svg+xml;base64,{{ svg_trash | base64_encode }}"
         {% else if pickup_type == "recycle" %}
         src="data:image/svg+xml;base64,{{ svg_recycle | base64_encode }}"
-        else if pickup_type == "brush" %}
+        {% else if pickup_type == "brush" %}
         src="data:image/svg+xml;base64,{{ svg_brush | base64_encode }}"
         {% endif %}
         alt="{{ pickup_type }}" />
