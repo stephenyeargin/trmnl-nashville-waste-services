@@ -7,7 +7,7 @@ polling_verb: get
 polling_url: 'https://api.recollect.net/api/places/{{ place_id }}/services/1263/events?nomerge=1&hide=reminder_only&after={{ "now" | date: "%Y-%m-%d" }}&before={{ "now" | date: "%s" | plus: 2592000 | date: "%Y-%m-%d" }}&locale=en'
 polling_headers: user-agent=TRMNL-Nashville-Waste/1.0
 polling_body: ''
-id: 201821
+id: 240532
 custom_fields:
 - keyname: author_bio
   name: About This Plugin
@@ -22,11 +22,5 @@ custom_fields:
   name: Place ID
   description: Your unique location ID from Recollect. Look at the <a href="https://www.nashville.gov/departments/waste-services/trash-and-recycling-services/recycling-app">URL for exporting an ICS calendar</a>.
   placeholder: 918DB048-D91A-11E8-B83E-68F5AF88FEB0
-- keyname: address
-  field_type: string
-  name: Display Address
-  description: A friendly name for your location to show on the display
-  placeholder: 1 King Street, Oshawa
-  optional: true
 name: Nashville Waste Collection
 refresh_interval: 1440
