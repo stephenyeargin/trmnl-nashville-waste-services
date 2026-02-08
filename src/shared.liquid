@@ -158,7 +158,7 @@ Find the next pickup day
 Capture pickups for the next pickup day
 {%- endcomment -%}
 {% capture pickup_events %}
-<div class="flex flex--center-y gap">
+<div class="flex flex--center-y flex--center-x gap">
   {% for event in sorted_events %}
     {% if event.day == next_pickup_day %}
       {% assign pickup_type = "" %}
@@ -171,9 +171,9 @@ Capture pickups for the next pickup day
         <img height="170" width="150"
         {% if pickup_type == "trash" %}
         src="data:image/svg+xml;base64,{{ svg_trash | base64_encode }}"
-        {% else if pickup_type == "recycle" %}
+        {% elsif pickup_type == "recycle" %}
         src="data:image/svg+xml;base64,{{ svg_recycle | base64_encode }}"
-        {% else if pickup_type == "brush" %}
+        {% elsif pickup_type == "brush" %}
         src="data:image/svg+xml;base64,{{ svg_brush | base64_encode }}"
         {% endif %}
         alt="{{ pickup_type }}" />
