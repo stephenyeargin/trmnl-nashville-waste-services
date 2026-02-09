@@ -7,9 +7,9 @@
         Next bin pickup is in {{ days_until_pickup }} day{% if days_until_pickup != 1 %}s{% endif %}
       {% endif %}
     </h1>
-    <div class="description text--center">Place bins at the street no later than 6 a.m.</div>
+    <div class="text--center mb--5"><span class="description">Place bins at the street no later than 6 a.m.</span></div>
     {{ pickup_events }}
-    <div class="mt--5">
+    <div class="mt--5 text--center">
       <span class="title title--small">
         {{ next_pickup_day | date: "%A, %B %-d" }}
       </span>

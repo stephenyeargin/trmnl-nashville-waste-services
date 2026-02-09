@@ -1,13 +1,19 @@
 <div class="layout layout--col">
-  <div class="">
-    <div class="text--center">
-      <h1 class="title title--large">
+  <div class="flex flex--center-y flex--center-x gap">
+    <div class="text--center mr--10">
+      <h1 class="title">
         {% if days_until_pickup == 0 %}
           Bin pickup is today.
         {% else %}
           Next bin pickup is in {{ days_until_pickup }} day{% if days_until_pickup != 1 %}s{% endif %}
         {% endif %}
       </h1>
+      <div class="text--center mb--5"><span class="description">Place bins at the street no later than 6 a.m.</span></div>
+      <div class="mt--5">
+        <span class="title title--small">
+          {{ next_pickup_day | date: "%A, %B %-d" }}
+        </span>
+      </div>
     </div>
     {{ pickup_events }}
   </div>
