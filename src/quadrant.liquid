@@ -1,4 +1,11 @@
 <div class="layout layout--col">
-  <h1 class="description">Next bin pickup is in {{ days_until_pickup }} day{% if days_until_pickup != 1 %}s{% endif %} • {{ next_pickup_day | date: "%A, %B %-d" }}</h1>
+  <h1 class="description">
+    {% if days_until_pickup == 0 %}
+      Bin pickup is today.
+    {% else %}
+      Next bin pickup is in {{ days_until_pickup }} day{% if days_until_pickup != 1 %}s{% endif %}
+    {% endif %}
+    • {{ next_pickup_day | date: "%A, %B %-d" }}
+  </h1>
   {{ pickup_events }}
- </div>
+</div>
