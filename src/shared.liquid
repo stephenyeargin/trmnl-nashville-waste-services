@@ -169,7 +169,7 @@ Capture pickups for the next pickup day
         {% endif %}
       {% endfor %}
       <div class="text--center">
-        <img height="125" width="88"
+        <img class="h--32 lg:h--64"
         {% if pickup_type == "trash" %}
         src="data:image/svg+xml;base64,{{ svg_trash | base64_encode }}"
         {% elsif pickup_type == "recycle" %}
@@ -180,7 +180,7 @@ Capture pickups for the next pickup day
         src="data:image/svg+xml;base64,{{ svg_unknown | base64_encode }}"
         {% endif %}
         alt="{{ pickup_type }}" />
-        <div><span class="label label--small label--outline">{{ pickup_type | upcase }}{{ image_height }}</span></div>
+        <div><span class="label label--small lg:label--base label--outline">{{ pickup_type | upcase }}</span></div>
       </div>
     {% endif %}
   {% endfor %}
