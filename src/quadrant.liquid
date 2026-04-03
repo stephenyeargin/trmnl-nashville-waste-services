@@ -1,5 +1,5 @@
 <div class="layout layout--col">
-  <h1 class="description description--base lg:description--large">
+  <h1 class="description description--base lg:description--xlarge">
     {% if days_until_pickup == 0 %}
       Bin pickup is today.
     {% else %}
@@ -7,5 +7,5 @@
     {% endif %}
     • {{ next_pickup_day | date: "%A, %B %-d" }}
   </h1>
-  {{ pickup_events }}
+  {% render "pickup_events" sorted_events: sorted_events, next_pickup_day: next_pickup_day, icon_size: "small" %}
 </div>
