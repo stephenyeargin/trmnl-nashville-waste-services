@@ -5,7 +5,7 @@ dark_mode: 'no'
 static_data: ''
 polling_verb: get
 framework_version: 2.3.7
-serverless_language: 
+serverless_language: node
 polling_url: 'https://api.recollect.net/api/places/{{ place_id }}/services/1263/events?nomerge=1&hide=reminder_only&after={{ "now" | date: "%s" | plus: trmnl.user.utc_offset | date: "%Y-%m-%d" }}&before={{ "now" | date: "%s" | plus: trmnl.user.utc_offset | plus: 2592000 | date: "%Y-%m-%d" }}&locale=en'
 polling_headers: user-agent=TRMNL-Nashville-Waste/1.0
 polling_body: ''
@@ -25,4 +25,4 @@ custom_fields:
   description: Your unique location ID from Recollect. Look at the <a href="https://www.nashville.gov/departments/waste-services/trash-and-recycling-services/recycling-app">URL for exporting an ICS calendar</a>.
   placeholder: 918DB048-D91A-11E8-B83E-68F5AF88FEB0
 name: Nashville Waste Collection
-refresh_interval: 1440
+refresh_interval: 720
