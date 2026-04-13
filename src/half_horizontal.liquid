@@ -16,6 +16,7 @@
           {{ next_pickup_day | date: "%A, %B %-d" }}
         </span>
       </div>
+      <div class="mt--3">{{ holiday_events }}</div>
     </div>
     {% render "pickup_events" sorted_events: sorted_events, next_pickup_day: next_pickup_day, icon_size: "small" %}
   </div>

@@ -1,6 +1,6 @@
 <div class="layout layout--col">
   <div class="">
-    <div class="my--5 lg:my--10 text--center">
+    <div class="my--2 lg:my--5 text--center">
       <h1 class="title title--large lg:title--xxlarge">
         {% if days_until_pickup == 0 %}
           Bin pickup is today.
@@ -15,7 +15,7 @@
     {% render "pickup_events" sorted_events: sorted_events, next_pickup_day: next_pickup_day, icon_size: "large" %}
     {{ layout_name }}
   </div>
-  {{ holiday_events }}
+  <div class="mt--3">{{ holiday_events }}</div>
 </div>
 
 <div class="title_bar">

@@ -33,6 +33,7 @@ Calculate today's date in user's local timezone using utc_offset
 {% assign today_ts = now_ts | plus: trmnl.user.utc_offset %}
 {% assign today = today_ts | date: "%Y-%m-%d" %}
 {% assign sorted_events = events | sort: "day" %}
+{% assign holidays = sorted_events | where: "is_holiday", 1 %}
 
 {%- comment -%}
 Find the next pickup day
@@ -210,14 +211,12 @@ Calculate days until next pickup
 Capture upcoming holidays (still all future holidays)
 {%- endcomment -%}
 {% capture holiday_events %}
-{% if holiday_events.length > 0 %}
-<div class="flex gap gap--large">
-  <div><span class="title title--small">Upcoming Holidays:</span></div>
-  {% for event in sorted_events %}
-    {% if event.is_holiday == 1 and event.day >= today %}
-      {% assign holiday_flag = event.flags.first %}
-      <div><span class="label label--small">{{ event.day | date: '%-m/%-d' }}: {{ holiday_flag.subject_hash["en-US"] }}</span></div>
-    {% endif %}
+{% if holidays.size > 0 %}
+<div class="flex gap gap--large flex--center-x">
+  <div><span class="label label--small lg:label--base label--underline">Upcoming Holidays:</span></div>
+  {% for event in holidays %}
+    {% assign holiday_flag = event.flags.first %}
+    <div><span class="label label--small lg:label--base">{{ event.day | date: '%-m/%-d' }}: {{ holiday_flag.subject_hash["en-US"] }}</span></div>
   {% endfor %}
 </div>
 {% endif  %}
