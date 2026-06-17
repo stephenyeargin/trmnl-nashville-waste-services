@@ -19,7 +19,7 @@
 </div>
 
 <div class="title_bar">
-  <img class="image-stroke image-stroke--large" src="data:image/svg+xml;base64,{{ svg_logo | base64_encode }}" width="24" height="24" alt="" />
+  <img class="image image-stroke image-stroke--medium dark:bg--black" src="data:image/svg+xml;base64,{{ svg_logo | base64_encode }}" alt="" />
   <span class="title">{{ trmnl.plugin_settings.instance_name | default: 'Nashville Waste Services' }}</span>
   <span class="instance">{{ next_pickup_day | date: "%A, %B %-d" }}</span>
 </div>

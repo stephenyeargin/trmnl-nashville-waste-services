@@ -1,3 +1,8 @@
+{% assign pickup_icon_size = "large" %}
+{% if trmnl.device.height > trmnl.device.width %}
+  {% assign pickup_icon_size = "small" %}
+{% endif %}
+
 <div class="layout layout--col">
   <div class="text--center">
     <h1 class="title title--base lg:title--xlarge">
@@ -17,11 +22,20 @@
       </span>
     </div>
   </div>
-  {% render "pickup_events" sorted_events: sorted_events, next_pickup_day: next_pickup_day, icon_size: "large" %}
-  <div class="mt--3">{{ holiday_events }}</div>
+  {% render "pickup_events" sorted_events: sorted_events, next_pickup_day: next_pickup_day, icon_size: pickup_icon_size %}
+  <div class="mt--3 portrait:hidden">{{ holiday_events }}</div>
+  {% if holidays.size > 0 %}
+    <div class="mt--3 hidden portrait:flex portrait:flex--col portrait:flex--center-x text--center">
+      <div><span class="label label--small lg:label--base label--underline">Upcoming Holidays:</span></div>
+      {% for event in holidays %}
+        {% assign holiday_flag = event.flags.first %}
+        <div><span class="label label--small lg:label--base">{{ event.day | date: '%-m/%-d' }}: {{ holiday_flag.subject_hash["en-US"] }}</span></div>
+      {% endfor %}
+    </div>
+  {% endif %}
 </div>
 
 <div class="title_bar">
-  <img class="image-stroke image-stroke--large" src="data:image/svg+xml;base64,{{ svg_logo | base64_encode }}" width="24" height="24" alt="" />
+  <img class="image image-stroke image-stroke--medium dark:bg--black" src="data:image/svg+xml;base64,{{ svg_logo | base64_encode }}" alt="" />
   <span class="title">{{ trmnl.plugin_settings.instance_name | default: 'Nashville Waste Services' }}</span>
 </div>
