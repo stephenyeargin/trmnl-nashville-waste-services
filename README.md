@@ -1,6 +1,6 @@
 # Nashville Waste Management for TRMNL
 
-[![Build and Release](https://github.com/stephenyeargin/trmnl-nashville-waste-services/actions/workflows/build.yml/badge.svg)](https://github.com/stephenyeargin/trmnl-nashville-waste-services/actions/workflows/build.yml)
+[![Build and Release](https://github.com/stephenyeargin/trmnl-nashville-waste-services/actions/workflows/build.yml/badge.svg)](https://github.com/stephenyeargin/trmnl-nashville-waste-services/actions/workflows/build.yml) [![TRMNL Recipe Connections](https://trmnl-badges.gohk.xyz/badge/connections?recipe=240532)](https://trmnl.com/recipes/240532)
 
 ![promo](assets/promo.png)
 
